@@ -106,7 +106,6 @@ const Map: React.FC<MapProps> = ({ allData }) => {
         <>
           {allData.map((data) => (
             <Marker
-              title={data.id}
               key={data.id}
               onMouseOver={() => {
                 handleDistance(data.location.lat, data.location.lng);
