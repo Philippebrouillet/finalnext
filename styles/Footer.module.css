@@ -1,0 +1,11 @@
+.FooterContainer {
+  display: flex;
+  border-top: 2px rgb(38, 203, 38) solid;
+  margin-top: 5px;
+}
+
+.FooterContainer img {
+  margin-left: 10px;
+  width: 200px;
+  height: 50px;
+}

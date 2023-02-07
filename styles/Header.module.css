@@ -1,0 +1,51 @@
+.headerContainer img {
+  margin-top: 5px;
+  animation-duration: 1.5s;
+  animation-name: slidein;
+}
+
+.headerContainer {
+  margin-top: 5px;
+  border-bottom: 2px rgb(38, 203, 38) solid;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.arrowToTop {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px rgba(181, 178, 178, 0.874) solid;
+  position: fixed;
+  bottom: 1%;
+  right: 1%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.arrowToTop p {
+  animation: move 2s infinite;
+  margin: 0;
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+@keyframes move {
+  from {
+    opacity: 0.5;
+    transform: translateY(8%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-8%);
+  }
+}

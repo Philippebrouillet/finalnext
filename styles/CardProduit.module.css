@@ -1,0 +1,92 @@
+.ProduitContainer {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  list-style: none;
+  min-width: 340px;
+  align-items: center;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    transform: translateX(-5%);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+.infos {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.CardWrapperProduits {
+  justify-content: center;
+  background-color: rgba(21, 23, 26, 0.089);
+  border-radius: 10px;
+  height: 400px;
+  width: 330px;
+  box-shadow: 3px 2px 14px -5px rgba(0, 0, 0, 0.69);
+  -webkit-box-shadow: 3px 2px 14px -5px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 3px 2px 14px -5px rgba(0, 0, 0, 0.69);
+}
+.CardWrapperProduits button {
+  border-radius: 10px;
+  border: 1px black solid;
+  cursor: pointer;
+}
+.CardWrapperProduits h1 {
+  font-size: 1.5em;
+  margin-bottom: 38px;
+}
+
+.UpdateAliasContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 10px;
+  transform: translateY(-40%);
+}
+.UpdateAliasContainer H5 {
+  margin: 0;
+  color: white;
+}
+
+.closeUpdateAlias {
+  display: flex;
+  justify-content: flex-end;
+}
+.closeUpdateAlias button {
+  transform: translateY(50%) translateX(-30%);
+
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+
+  font-size: 0.7em;
+  height: 18px;
+}
+.textAlias input {
+  max-width: 125px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+.aliasBtn button {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.7em;
+  background-color: black;
+  color: white;
+}

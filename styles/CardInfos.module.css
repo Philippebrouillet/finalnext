@@ -1,0 +1,15 @@
+.pageInfosContainer {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+}
+
+.cardInfosContainer {
+  margin-top: 90px;
+  width: 600px;
+}
+
+.cardInfosContainer .paragraph {
+  text-align: start;
+}

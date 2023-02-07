@@ -1,0 +1,9 @@
+.modalContainer {
+  background-color: rgba(0, 0, 0, 0.889);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  opacity: 0;
+  width: 300px;
+  z-index: 1000;
+}

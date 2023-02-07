@@ -1,0 +1,60 @@
+.FermesContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  list-style: none;
+  min-width: 340px;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    transform: translateX(-5%);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+.infos {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.CardWrapperFerme {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: rgba(203, 205, 207, 0.801);
+  border-radius: 10px;
+  gap: 20px;
+  height: 400px;
+  width: 330px;
+  box-shadow: 3px 2px 14px -6px rgba(0, 0, 0, 0.69);
+  -webkit-box-shadow: 3px 2px 14px -6px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 3px 2px 14px -6px rgba(0, 0, 0, 0.69);
+}
+
+.CardWrapperFerme h1 {
+  font-size: 1.5em;
+}
+.contactWrapper {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+  justify-content: center;
+}
+
+.contactWrapper p {
+  text-align: center;
+  margin: 0;
+}
+
+.infosContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
