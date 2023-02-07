@@ -44,6 +44,7 @@ export const Context = createContext<ContextData>({
 const { Provider } = Context;
 
 const ContextProvider: React.FC<{ children?: React.ReactNode }> = (props) => {
+  //initialisation de plusieurs const state en useContext pour permettre au différents composants d'intéragir entre eux
   const [distance, setDistance] = useState(0);
   const [searchValue, setSearchValue] = useState("");
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -51,6 +52,7 @@ const ContextProvider: React.FC<{ children?: React.ReactNode }> = (props) => {
   const [showOnMap, setShowOnMap] = useState(false);
   const [idMarker, setIdMarker] = useState("");
   const router = useRouter();
+
   //function qui permet de modifier L'alias des produits.
   const updateProduit = async (id: string, alias: string) => {
     const aliasDoc = doc(db, "Produits", id);

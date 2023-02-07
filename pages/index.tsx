@@ -58,8 +58,9 @@ export interface CombinedData {
   id: string;
   key?: number;
 }
-
+//récupération des props  fermes et produits grace getServerProps
 const Home = ({ fermes, produits }: HomeProps) => {
+  //concaténation des data fermes et produits pour les assigners a allData.
   const allData = (fermes as CombinedData[]).concat(produits as CombinedData[]);
   return (
     <>
@@ -82,6 +83,7 @@ const Home = ({ fermes, produits }: HomeProps) => {
 
 export default Home;
 
+//récupération des données fermes et produits pour en faire des SERVERSIDEPROPS
 export async function getServerSideProps() {
   const ProduitsCollectionRef = collection(db, "Produits");
   const res = await getDocs(ProduitsCollectionRef);
