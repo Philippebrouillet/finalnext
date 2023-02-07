@@ -1,15 +1,31 @@
 .pageInfosContainer {
-  height: 100vh;
-
   display: flex;
   justify-content: center;
 }
 
 .cardInfosContainer {
-  margin-top: 90px;
+  margin-top: 100px;
   width: 600px;
+}
+
+.cardInfosContainer .paragraphcontact {
+  text-align: start;
 }
 
 .cardInfosContainer .paragraph {
   text-align: start;
+  margin-bottom: 200px;
+}
+
+.infosContact {
+  margin-bottom: 100px;
+}
+.infosContact p {
+  margin: 0px;
+}
+
+@media screen and (max-width: 630px) {
+  .cardInfosContainer {
+    width: 350px;
+  }
 }

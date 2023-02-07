@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "@/styles/CardProduit.module.css";
 import img from "../../assets/imgnoir.jpg";
 import { Context } from "../../Context/dataContext";
@@ -6,6 +6,7 @@ import Link from "next/link";
 import calculateDistance from "../DistanceCalculator";
 import Image from "next/image";
 import infos from "../../assets/infosicon.png";
+import Loader from "../Loader";
 
 interface Produit {
   id: string;

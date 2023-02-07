@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import styles from "@/styles/Search.module.css";
 
@@ -16,12 +16,13 @@ const Search: React.FC<SearchProps> = ({ allData }) => {
 
   //pour faire un effet sur la barre de recherche a sont apparition
   const [active, setActive] = useState(false);
-
-  if (searchValue.length > 0 && active === false) {
-    setActive(true);
-  } else if (searchValue.length === 0 && active === true) {
-    setActive(false);
-  }
+  useEffect(() => {
+    if (searchValue.length > 0 && active === false) {
+      setActive(true);
+    } else if (searchValue.length === 0 && active === true) {
+      setActive(false);
+    }
+  }, [active, searchValue.length]);
 
   // conditions pour éviter des érreurs dans la console ou des crash du site
   //quand on tappe dans la barre de recherche

@@ -13,7 +13,11 @@ const CardInfos: React.FC<infosProps> = ({ Post }) => {
 
           <p>img</p>
           <p>adresse...</p>
-          <p className={styles.paragraph}>
+          <p
+            className={
+              Post.contact ? styles.paragraphcontact : styles.paragraph
+            }
+          >
             {" "}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
             dolorem ab voluptatibus praesentium corrupti? Consectetur a repellat
