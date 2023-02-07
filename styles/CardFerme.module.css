@@ -24,6 +24,7 @@
   height: 20px;
   cursor: pointer;
 }
+
 .CardWrapperFerme {
   display: flex;
   flex-direction: column;

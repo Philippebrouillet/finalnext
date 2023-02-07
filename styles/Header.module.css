@@ -20,8 +20,8 @@
 }
 
 .arrowToTop {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px rgba(181, 178, 178, 0.874) solid;
   position: fixed;
