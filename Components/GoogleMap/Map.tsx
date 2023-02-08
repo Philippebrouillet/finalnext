@@ -47,14 +47,6 @@ const Map: React.FC<MapProps> = ({ allData }) => {
   const { width } = useWindowSize();
   const isMobile = width <= 800;
 
-  useEffect(() => {
-    if (isMobile) {
-      console.log("aaa");
-    } else if (!isMobile) {
-      console.log("b");
-    }
-  }, [isMobile]);
-
   const containerStyleSticky = {
     position: "sticky",
     top: "0",
