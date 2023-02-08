@@ -4,7 +4,7 @@ import ModalMap from "./ModalMap";
 import { Context } from "../../Context/dataContext";
 import calculateDistance from "../DistanceCalculator";
 import { CombinedData } from "../../pages/index";
-
+import { useWindowSize } from "react-use";
 interface MapProps {
   allData: CombinedData[];
 }
@@ -44,13 +44,25 @@ const Map: React.FC<MapProps> = ({ allData }) => {
 
   const { isLoaded } = useJsApiLoader(options);
 
+  const { width } = useWindowSize();
+  const isMobile = width <= 800;
+
+  useEffect(() => {
+    if (isMobile) {
+      console.log("aaa");
+    } else if (!isMobile) {
+      console.log("b");
+    }
+  }, [isMobile]);
+
   const containerStyleSticky = {
     position: "sticky",
     top: "0",
     left: "0",
     marginTop: "100px",
-    width: "600px",
-    height: "850px",
+
+    height: isMobile ? "700px" : "100vh",
+    width: isMobile ? "430px" : "700px",
     borderRadius: "10px",
     marginBottom: "50px",
     boxShadow: "0px 1px 5px 0px rgba(0, 0, 0, 0.75)",
@@ -96,7 +108,11 @@ const Map: React.FC<MapProps> = ({ allData }) => {
       <GoogleMap
         center={center}
         zoom={6}
-        mapContainerStyle={count === 0 ? containerStyleSticky : containerStyle}
+        mapContainerStyle={
+          count === 0
+            ? containerStyleSticky
+            : containerStyle || innerWidth > 800
+        }
         options={{
           streetViewControl: false,
           zoomControl: false,
