@@ -45,7 +45,7 @@ const Map: React.FC<MapProps> = ({ allData }) => {
   const { isLoaded } = useJsApiLoader(options);
 
   const { width } = useWindowSize();
-  const isMobile = width <= 800;
+  const isMobile = width <= 650;
 
   const containerStyleSticky = {
     position: "sticky",
@@ -54,7 +54,7 @@ const Map: React.FC<MapProps> = ({ allData }) => {
     marginTop: "100px",
 
     height: isMobile ? "700px" : "100vh",
-    width: isMobile ? "430px" : "700px",
+    width: isMobile ? "400px" : "700px",
     borderRadius: "10px",
     marginBottom: "50px",
     boxShadow: "0px 1px 5px 0px rgba(0, 0, 0, 0.75)",
