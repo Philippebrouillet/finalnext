@@ -64,7 +64,7 @@ const Map: React.FC<MapProps> = ({ allData }) => {
 
   const containerStyle = {
     marginTop: "100px",
-    width: "600px",
+    width: "700px",
     height: "100vh",
     borderRadius: "10px",
     marginBottom: "50px",
