@@ -42,15 +42,15 @@ const CardProduit: React.FC<{ produit: Produit }> = ({ produit }) => {
           src={infos}
           alt="imgInfos"
           className={styles.infos}
-          onMouseLeave={() => {
-            setShowOnMap(false);
-            setIdMarker("");
-            setDistance(0);
-          }}
           onMouseOver={() => {
             handleDistance(produit.location.lat, produit.location.lng);
             setShowOnMap(true);
             setIdMarker(produit.id);
+          }}
+          onMouseLeave={() => {
+            setShowOnMap(false);
+            setIdMarker("");
+            setDistance(0);
           }}
         />
       </h1>

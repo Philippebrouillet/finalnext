@@ -41,15 +41,15 @@ const CardFerme: React.FC<Props> = ({ ferme }) => {
           src={infos}
           alt="imgInfos"
           className={styles.infos}
-          onMouseLeave={() => {
-            setShowOnMap(false);
-            setIdMarker("");
-            setDistance(0);
-          }}
           onMouseOver={() => {
             handleDistance(ferme.location.lat, ferme.location.lng);
             setShowOnMap(true);
             setIdMarker(ferme.id);
+          }}
+          onMouseLeave={() => {
+            setShowOnMap(false);
+            setIdMarker("");
+            setDistance(0);
           }}
         />
       </h1>
