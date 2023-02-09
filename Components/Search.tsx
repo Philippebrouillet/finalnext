@@ -11,8 +11,15 @@ interface SearchProps {
 }
 
 const Search: React.FC<SearchProps> = ({ allData }) => {
-  const { setSuggestions, setSearchValue, searchValue, suggestions } =
-    useContext(Context);
+  const {
+    setSuggestions,
+    setSearchValue,
+    searchValue,
+    suggestions,
+    setSelect,
+    isMobile,
+    select,
+  } = useContext(Context);
 
   //pour faire un effet sur la barre de recherche a sont apparition
   const [active, setActive] = useState(false);
@@ -103,6 +110,38 @@ const Search: React.FC<SearchProps> = ({ allData }) => {
             ))}
         </ul>
       </div>
+      {isMobile ? (
+        <div className={styles.selectFormContainer}>
+          <form className={styles.selectForm}>
+            <label>
+              <select
+                className={styles.selectBox}
+                value={select}
+                onChange={(e) => setSelect(e.target.value)}
+              >
+                {select.length === 0 ? (
+                  <option value="Selectionner">Selectionner</option>
+                ) : null}
+                <option value="Fermes">Fermes</option>
+                <option value="Produits">Produits</option>
+              </select>
+            </label>
+          </form>
+
+          {select.includes("Fermes") || select.includes("Produits") ? (
+            <button
+              className={styles.buttonResetSelect}
+              onClick={() => setSelect("")}
+            >
+              X
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import styles from "@/styles/Feed.module.css";
 import stylesFerme from "@/styles/CardFerme.module.css";
 import stylesProduit from "@/styles/CardProduit.module.css";
 import CardFerme from "./Cards/CardFerme";
 import CardProduit from "./Cards/CardProduit";
+import { Context } from "@/Context/dataContext";
 
 interface FermeProps {
   fermes: [
@@ -37,7 +38,9 @@ interface FermeProps {
 }
 
 const Feed: React.FC<FermeProps> = ({ fermes, produits }) => {
-  return (
+  const { select, isMobile } = useContext(Context);
+
+  return !isMobile ? (
     <div className={styles.feedContainer}>
       <ul className={stylesFerme.FermesContainer}>
         <h2 className={styles.titleStyle}>FERMES</h2>
@@ -62,6 +65,70 @@ const Feed: React.FC<FermeProps> = ({ fermes, produits }) => {
             <CardProduit key={produit.id} produit={produit} />
           ))}
       </ul>
+    </div>
+  ) : (
+    <div className={styles.feedContainer}>
+      {select === "" ? (
+        <div className={styles.feedContainer}>
+          <ul className={stylesFerme.FermesContainer}>
+            <h2 className={styles.titleStyle}>FERMES</h2>
+
+            {fermes
+              .sort((a, b) => a.location.lat + b.location.lat)
+              .sort((a, b) => a.location.lng - b.location.lng)
+
+              .map((ferme) => (
+                <CardFerme key={ferme.id} ferme={ferme} />
+              ))}
+          </ul>
+
+          <ul className={stylesProduit.ProduitContainer}>
+            <h2 className={styles.titleStyle}>PRODUITS</h2>
+
+            {produits
+              .sort((a, b) => a.location.lat + b.location.lat)
+              .sort((a, b) => a.location.lng - b.location.lng)
+
+              .map((produit) => (
+                <CardProduit key={produit.id} produit={produit} />
+              ))}
+          </ul>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {select === "Fermes" ? (
+        <ul className={stylesFerme.FermesContainer}>
+          <h2 className={styles.titleStyle}>FERMES</h2>
+
+          {fermes
+            .sort((a, b) => a.location.lat + b.location.lat)
+            .sort((a, b) => a.location.lng - b.location.lng)
+
+            .map((ferme) => (
+              <CardFerme key={ferme.id} ferme={ferme} />
+            ))}
+        </ul>
+      ) : (
+        <></>
+      )}
+
+      {select === "Produits" ? (
+        <ul className={stylesProduit.ProduitContainer}>
+          <h2 className={styles.titleStyle}>PRODUITS</h2>
+
+          {produits
+            .sort((a, b) => a.location.lat + b.location.lat)
+            .sort((a, b) => a.location.lng - b.location.lng)
+
+            .map((produit) => (
+              <CardProduit key={produit.id} produit={produit} />
+            ))}
+        </ul>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

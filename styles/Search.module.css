@@ -119,3 +119,19 @@
   animation-duration: 1s;
   animation-name: opacity;
 }
+
+.selectFormContainer {
+  margin-top: 25px;
+  margin-left: 20px;
+  display: flex;
+  gap: 10px;
+}
+.selectBox {
+  border-radius: 5px;
+}
+.buttonResetSelect {
+  height: 18px;
+  border-radius: 10px;
+  border: 1px black solid;
+  margin-top: 2px;
+}
