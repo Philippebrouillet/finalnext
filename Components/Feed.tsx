@@ -94,11 +94,7 @@ const Feed: React.FC<FermeProps> = ({ fermes, produits }) => {
               ))}
           </ul>
         </div>
-      ) : (
-        <></>
-      )}
-
-      {select === "Fermes" ? (
+      ) : select === "Fermes" ? (
         <ul className={stylesFerme.FermesContainer}>
           <h2 className={styles.titleStyle}>FERMES</h2>
 
@@ -110,11 +106,7 @@ const Feed: React.FC<FermeProps> = ({ fermes, produits }) => {
               <CardFerme key={ferme.id} ferme={ferme} />
             ))}
         </ul>
-      ) : (
-        <></>
-      )}
-
-      {select === "Produits" ? (
+      ) : select === "Produits" ? (
         <ul className={stylesProduit.ProduitContainer}>
           <h2 className={styles.titleStyle}>PRODUITS</h2>
 

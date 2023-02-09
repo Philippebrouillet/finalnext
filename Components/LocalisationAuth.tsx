@@ -51,12 +51,10 @@ function LocalisationAuth() {
 
   return (
     <div>
-      <>
-        <p>
-          Vous êtes situé à {Math.floor(distanceConvert)}{" "}
-          {localisation < 1000 ? "metres" : "Km"} du point central
-        </p>
-      </>
+      <p>
+        Vous êtes situé à {Math.floor(distanceConvert)}{" "}
+        {localisation < 1000 ? "metres" : "Km"} du point central
+      </p>
     </div>
   );
 }

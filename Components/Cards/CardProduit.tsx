@@ -26,7 +26,7 @@ const CardProduit: React.FC<{ produit: Produit }> = ({ produit }) => {
     setIdMarker,
     setDistance,
   } = useContext(Context);
-  const [update, setUpdate] = useState(false);
+  const [OpenUpdate, setOpenUpdate] = useState(false);
 
   function handleDistance(lat: number, long: number) {
     const distance = calculateDistance(lat, long);
@@ -71,12 +71,12 @@ const CardProduit: React.FC<{ produit: Produit }> = ({ produit }) => {
 
       <p>Alias: {produit.alias} </p>
 
-      {!update ? (
-        <button onClick={() => setUpdate(true)}>Modifier</button>
+      {!OpenUpdate ? (
+        <button onClick={() => setOpenUpdate(true)}>Modifier</button>
       ) : (
         <div className={styles.UpdateAliasContainer}>
           <div className={styles.closeUpdateAlias}>
-            <button onClick={() => setUpdate(false)}>X</button>
+            <button onClick={() => setOpenUpdate(false)}>X</button>
           </div>
 
           <div className={styles.textAlias}>
@@ -92,7 +92,7 @@ const CardProduit: React.FC<{ produit: Produit }> = ({ produit }) => {
             <button
               onClick={() => {
                 updateProduit(produit.id, produit.alias);
-                setUpdate(false);
+                setOpenUpdate(false);
               }}
             >
               Valider Modification
