@@ -106,43 +106,24 @@ const Map: React.FC<MapProps> = ({ allData }) => {
         }}
       >
         <>
-          {allData.map((data) =>
-            isMobile ? (
-              <Marker
-                key={data.id}
-                onClick={() => {
-                  handleDistance(data.location.lat, data.location.lng);
+          {allData.map((data) => (
+            <Marker
+              key={data.id}
+              onMouseOver={() => {
+                handleDistance(data.location.lat, data.location.lng);
 
-                  setShowOnMap(true);
-                  setIdMarker(data.id);
-                }}
-                onMouseOut={() => {
-                  setShowOnMap(false);
-                  setIdMarker("");
-                  setDistance(0);
-                }}
-                position={position(data.location.lat, data.location.lng)}
-                icon={showOnMap && idMarker === data.id ? "" : svgMarker}
-              />
-            ) : (
-              <Marker
-                key={data.id}
-                onMouseOver={() => {
-                  handleDistance(data.location.lat, data.location.lng);
-
-                  setShowOnMap(true);
-                  setIdMarker(data.id);
-                }}
-                onMouseOut={() => {
-                  setShowOnMap(false);
-                  setIdMarker("");
-                  setDistance(0);
-                }}
-                position={position(data.location.lat, data.location.lng)}
-                icon={showOnMap && idMarker === data.id ? "" : svgMarker}
-              />
-            )
-          )}
+                setShowOnMap(true);
+                setIdMarker(data.id);
+              }}
+              onMouseOut={() => {
+                setShowOnMap(false);
+                setIdMarker("");
+                setDistance(0);
+              }}
+              position={position(data.location.lat, data.location.lng)}
+              icon={showOnMap && idMarker === data.id ? "" : svgMarker}
+            />
+          ))}
 
           <Marker
             position={center}
