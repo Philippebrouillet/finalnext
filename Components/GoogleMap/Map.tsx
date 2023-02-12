@@ -18,6 +18,7 @@ const Map: React.FC<MapProps> = ({ allData }) => {
     distance,
     setDistance,
     isMobile,
+    rayon,
   } = useContext(Context);
 
   function handleDistance(lat: number, long: number) {
@@ -106,24 +107,29 @@ const Map: React.FC<MapProps> = ({ allData }) => {
         }}
       >
         <>
-          {allData.map((data) => (
-            <Marker
-              key={data.id}
-              onMouseOver={() => {
-                handleDistance(data.location.lat, data.location.lng);
+          {allData
+            .filter(
+              (data) =>
+                calculateDistance(data.location.lat, data.location.lng) < rayon
+            )
+            .map((data) => (
+              <Marker
+                key={data.id}
+                onMouseOver={() => {
+                  handleDistance(data.location.lat, data.location.lng);
 
-                setShowOnMap(true);
-                setIdMarker(data.id);
-              }}
-              onMouseOut={() => {
-                setShowOnMap(false);
-                setIdMarker("");
-                setDistance(0);
-              }}
-              position={position(data.location.lat, data.location.lng)}
-              icon={showOnMap && idMarker === data.id ? "" : svgMarker}
-            />
-          ))}
+                  setShowOnMap(true);
+                  setIdMarker(data.id);
+                }}
+                onMouseOut={() => {
+                  setShowOnMap(false);
+                  setIdMarker("");
+                  setDistance(0);
+                }}
+                position={position(data.location.lat, data.location.lng)}
+                icon={showOnMap && idMarker === data.id ? "" : svgMarker}
+              />
+            ))}
 
           <Marker
             position={center}

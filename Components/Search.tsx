@@ -19,6 +19,8 @@ const Search: React.FC<SearchProps> = ({ allData }) => {
     setSelect,
     isMobile,
     select,
+    rayon,
+    setRayon,
   } = useContext(Context);
 
   //pour faire un effet sur la barre de recherche a sont apparition
@@ -110,6 +112,22 @@ const Search: React.FC<SearchProps> = ({ allData }) => {
             ))}
         </ul>
       </div>
+      <ul>
+        {rayon > 2300 || rayon < 2300 ? (
+          <button onClick={() => setRayon(2300)}>X</button>
+        ) : null}
+        <input
+          type="range"
+          min="100"
+          max="1000000"
+          value={rayon}
+          onChange={(e) => setRayon(Number(e.target.value))}
+        />
+        <p>
+          Rayon {""}
+          {rayon >= 1000 ? Math.floor(rayon) / 1000 + "KM" : rayon + "M"}
+        </p>
+      </ul>
       {isMobile ? (
         <div className={styles.selectFormContainer}>
           <form className={styles.selectForm}>

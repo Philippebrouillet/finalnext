@@ -11,6 +11,8 @@ interface Suggestion {
 }
 
 interface ContextData {
+  rayon: number;
+  setRayon: React.Dispatch<React.SetStateAction<number>>;
   select: string;
   setSelect: React.Dispatch<React.SetStateAction<string>>;
   searchValue: string;
@@ -30,6 +32,8 @@ interface ContextData {
 }
 
 export const Context = createContext<ContextData>({
+  rayon: 0,
+  setRayon: () => {},
   select: "",
   setSelect: () => {},
   searchValue: "",
@@ -66,6 +70,7 @@ const ContextProvider: React.FC<{ children?: React.ReactNode }> = (props) => {
   const [idMarker, setIdMarker] = useState("");
   //permet de contenir l'option séléctionné dans le formulaire de type select
   const [select, setSelect] = useState("");
+  const [rayon, setRayon] = useState(2300);
 
   const router = useRouter();
 
@@ -86,6 +91,8 @@ const ContextProvider: React.FC<{ children?: React.ReactNode }> = (props) => {
   return (
     <Provider
       value={{
+        rayon,
+        setRayon,
         searchValue,
         setSearchValue,
         suggestions,
