@@ -3,6 +3,7 @@ import styles from "@/styles/CardInfos.module.css";
 import { collection, getDocs } from "firebase/firestore";
 import CardInfos from "@/Components/forPageInfos/CardInfos";
 import { db } from "@/firebase/clientApp";
+import Link from "next/link";
 
 export interface infosProps {
   Post: {
@@ -20,6 +21,9 @@ export interface infosProps {
 const index: React.FC<infosProps> = ({ Post }) => {
   return (
     <div className={styles.pageInfosContainer}>
+      <Link href="/">
+        <button>Retour</button>
+      </Link>
       <CardInfos Post={Post} />
     </div>
   );

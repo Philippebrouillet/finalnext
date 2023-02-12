@@ -73,8 +73,18 @@ const Map: React.FC<MapProps> = ({ allData }) => {
     path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
     fillColor: "black",
     fillOpacity: 1,
-    strokeWeight: 1,
-    rotation: 1,
+    strokeWeight: 0,
+    rotation: 0,
+
+    scale: 0.68,
+  };
+
+  const svgMarkerCentre = {
+    path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
+    fillColor: "green",
+    fillOpacity: 1,
+    strokeWeight: 0,
+    rotation: 0,
 
     scale: 0.68,
   };
@@ -141,7 +151,7 @@ const Map: React.FC<MapProps> = ({ allData }) => {
               setShowOnMap(false);
               setIdMarker("");
             }}
-            icon={showOnMap && idMarker === "centre" ? "" : svgMarker}
+            icon={showOnMap && idMarker === "centre" ? "" : svgMarkerCentre}
           />
         </>
       </GoogleMap>

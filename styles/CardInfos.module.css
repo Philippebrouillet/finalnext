@@ -3,6 +3,11 @@
   justify-content: center;
 }
 
+.pageInfosContainer button {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
 .cardInfosContainer {
   margin-top: 100px;
   width: 600px;

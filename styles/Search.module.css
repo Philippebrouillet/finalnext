@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   height: 130px;
+  gap: 30px;
 }
 
 @keyframes slidein {
@@ -134,4 +135,26 @@
   border-radius: 10px;
   border: 1px black solid;
   margin-top: 2px;
+}
+
+.rangeRayonContainer {
+  margin-top: 30px;
+}
+
+.rangeRayonContainer button {
+  border-radius: 10px;
+  border: 1px black solid;
+}
+
+@media screen and (max-width: 600px) {
+  .searchContainer {
+    gap: 0px;
+  }
+  .searchBox {
+    width: 90%;
+  }
+  .activeSearch {
+    width: 162px;
+    padding: 10px 5px 10px 5px;
+  }
 }
