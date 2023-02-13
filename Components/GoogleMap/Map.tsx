@@ -111,7 +111,7 @@ const Map: React.FC<MapProps> = ({ allData }) => {
     return () => clearInterval(intervalId);
   }, [count]);
   ///////////////////////////////////////////////////
-  console.log(zoom);
+
   return isLoaded ? (
     <div className="mapContainer">
       <GoogleMap
@@ -121,8 +121,6 @@ const Map: React.FC<MapProps> = ({ allData }) => {
         mapContainerStyle={count === 0 ? containerStyleSticky : containerStyle}
         options={{
           streetViewControl: false,
-          zoomControl: false,
-          disableDefaultUI: true,
         }}
       >
         <>
