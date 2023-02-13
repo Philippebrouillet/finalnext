@@ -121,6 +121,8 @@ const Map: React.FC<MapProps> = ({ allData }) => {
         mapContainerStyle={count === 0 ? containerStyleSticky : containerStyle}
         options={{
           streetViewControl: false,
+          zoomControl: false,
+          disableDefaultUI: true,
         }}
       >
         <>
