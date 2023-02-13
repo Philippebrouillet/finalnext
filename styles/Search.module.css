@@ -135,7 +135,7 @@
   border: 1px black solid;
   margin-top: 2px;
   font-size: 0.7em;
-  width: 20px;
+  height: 21.49px;
 }
 
 .rangeRayonContainer {
@@ -147,8 +147,8 @@
   margin-left: 5px;
   border: 1px black solid;
   font-size: 0.7em;
-  width: 20px;
-  height: 20px;
+
+  height: 21.49px;
 }
 
 .rangeResetButton {
@@ -157,7 +157,6 @@
 }
 .rangeRayonInput {
   display: flex;
-  flex-direction: column;
   gap: 2px;
 }
 @media screen and (max-width: 600px) {
@@ -181,5 +180,14 @@
     margin-top: 0px;
 
     height: 125px;
+  }
+  .rangeResetButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .rangeRayonInput {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 }

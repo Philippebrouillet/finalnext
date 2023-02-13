@@ -22,6 +22,7 @@ const RayonInput = () => {
           onChange={(e) => setRayon(Number(e.target.value))}
         />
       </div>
+
       <p>
         Rayon {""}
         {rayon >= 1000 ? Math.floor(rayon) / 1000 + "Km" : rayon + "M"}
