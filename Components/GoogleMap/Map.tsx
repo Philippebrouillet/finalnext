@@ -32,7 +32,15 @@ const Map: React.FC<MapProps> = ({ allData }) => {
     return position;
   }
 
-  const center = { lat: 45.73257306794853, lng: -0.3435314023816621 };
+  const center = {
+    lat: 45.73257306794853,
+    lng: -0.3435314023816621,
+  };
+  const [focusMarker, setFocusMarker] = useState({
+    lat: 45.73257306794853,
+    lng: -0.3435314023816621,
+  });
+  const [zoom, setZoom] = useState(6);
 
   const googleMapsApiKey =
     typeof process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY === "string"
@@ -103,12 +111,13 @@ const Map: React.FC<MapProps> = ({ allData }) => {
     return () => clearInterval(intervalId);
   }, [count]);
   ///////////////////////////////////////////////////
-
+  console.log(zoom);
   return isLoaded ? (
     <div className="mapContainer">
       <GoogleMap
-        center={center}
-        zoom={6}
+        center={focusMarker}
+        zoom={center.lat === focusMarker.lat ? 6 : zoom}
+        onZoomChanged={() => setZoom(16)}
         mapContainerStyle={count === 0 ? containerStyleSticky : containerStyle}
         options={{
           streetViewControl: false,
@@ -124,6 +133,13 @@ const Map: React.FC<MapProps> = ({ allData }) => {
             )
             .map((data) => (
               <Marker
+                onClick={() => {
+                  setFocusMarker({
+                    lat: data.location.lat,
+                    lng: data.location.lng,
+                  });
+                  setZoom(10);
+                }}
                 key={data.id}
                 onMouseOver={() => {
                   handleDistance(data.location.lat, data.location.lng);
