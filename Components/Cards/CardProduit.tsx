@@ -18,14 +18,8 @@ interface Produit {
 }
 
 const CardProduit: React.FC<{ produit: Produit }> = ({ produit }) => {
-  const {
-    updateProduit,
-
-    setAlias,
-    setShowOnMap,
-    setIdMarker,
-    setDistance,
-  } = useContext(Context);
+  const { updateProduit, setAlias, setShowOnMap, setIdMarker, setDistance } =
+    useContext(Context);
   const [OpenUpdate, setOpenUpdate] = useState(false);
 
   function handleDistance(lat: number, long: number) {
