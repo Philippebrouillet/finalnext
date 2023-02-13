@@ -8,7 +8,7 @@ const RayonInput = () => {
     <div className={styles.rangeRayonContainer}>
       <div className={styles.rangeRayonInput}>
         <div className={styles.rangeResetButton}>
-          {rayon > 2300 || rayon < 2300 ? (
+          {rayon > 2300 ? (
             <button onClick={() => setRayon(2300)}>X</button>
           ) : (
             <></>
@@ -16,7 +16,7 @@ const RayonInput = () => {
         </div>
         <input
           type="range"
-          min="100"
+          min="2300"
           max="600000"
           value={rayon}
           onChange={(e) => setRayon(Number(e.target.value))}
