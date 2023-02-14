@@ -111,7 +111,7 @@ const Map: React.FC<MapProps> = ({ allData }) => {
     return () => clearInterval(intervalId);
   }, [count]);
   ///////////////////////////////////////////////////
-  const [text, setText] = useState("");
+
   return isLoaded ? (
     <div className="mapContainer">
       <GoogleMap
@@ -133,15 +133,12 @@ const Map: React.FC<MapProps> = ({ allData }) => {
             )
             .map((data) => (
               <Marker
-                title={data.name}
                 onClick={() => {
                   setFocusMarker({
                     lat: data.location.lat,
                     lng: data.location.lng,
                   });
                   setZoom(1);
-
-                  setText(data.name);
                 }}
                 key={data.id}
                 onMouseOver={() => {
