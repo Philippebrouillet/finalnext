@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 import styles from "@/styles/CardInfos.module.css";
 import { infosProps } from "../../pages/[id]/index";
 
@@ -11,7 +11,16 @@ const CardInfos: React.FC<infosProps> = ({ Post }) => {
 
         {Post.alias ? "Alias: " + Post.alias : null}
 
-        <p>img</p>
+        <div>
+          <Image
+            loading="lazy"
+            className="imgCardInfos"
+            src={Post.img}
+            width={1}
+            height={1}
+            alt="imgPost"
+          />
+        </div>
         <p>adresse...</p>
         <p
           className={Post.contact ? styles.paragraphcontact : styles.paragraph}

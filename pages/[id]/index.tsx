@@ -15,6 +15,7 @@ export interface infosProps {
       email: string;
       tel: number;
     };
+    img: string;
   };
 }
 

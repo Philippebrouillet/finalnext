@@ -20,6 +20,7 @@ interface Ferme {
     email: string;
     tel: string;
   };
+  img: string;
 }
 
 interface Props {
@@ -57,12 +58,14 @@ const CardFerme: React.FC<Props> = ({ ferme }) => {
         <Link href={`/${ferme.id}`}>
           <Image
             priority={true}
-            className="imgnoir"
+            className="imgData"
             onClick={() => {
               setIdMarker("");
             }}
-            src={img}
-            alt="imgnoir"
+            src={ferme.img}
+            width={1}
+            height={1}
+            alt="imgFerme"
           />
         </Link>
       </div>

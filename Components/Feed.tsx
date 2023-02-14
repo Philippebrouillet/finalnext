@@ -24,6 +24,7 @@ export interface FeedProps {
         email: string;
       };
       id: string;
+      img: string;
     }
   ];
   produits: [
@@ -35,6 +36,7 @@ export interface FeedProps {
         lat: number;
         lng: number;
       };
+      img: string;
     }
   ];
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styles from "@/styles/CardProduit.module.css";
-import img from "../../assets/imgnoir.jpg";
+
 import { Context } from "../../Context/dataContext";
 import Link from "next/link";
 import calculateDistance from "../DistanceCalculator";
@@ -15,6 +15,7 @@ interface Produit {
     lat: number;
     lng: number;
   };
+  img: string;
 }
 
 const CardProduit: React.FC<{ produit: Produit }> = ({ produit }) => {
@@ -53,9 +54,11 @@ const CardProduit: React.FC<{ produit: Produit }> = ({ produit }) => {
         <Link href={`/${produit.id}`}>
           <Image
             loading="lazy"
-            className="imgnoir"
-            src={img}
-            alt="imgnoir"
+            className="imgData"
+            src={produit.img}
+            width={1}
+            height={1}
+            alt="imgProduit"
             onClick={() => {
               setIdMarker("");
             }}

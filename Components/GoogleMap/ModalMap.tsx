@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/ModalMap.module.css";
 import { CombinedData } from "../../pages/index";
-
+import Image from "next/image";
 interface ModalMapProps {
   allData: CombinedData[];
   idMarker: string;
@@ -11,6 +11,7 @@ interface ModalMapProps {
 const ModalMap: React.FC<ModalMapProps> = ({ allData, idMarker, distance }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState(false);
+  console.log(allData);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -68,7 +69,17 @@ const ModalMap: React.FC<ModalMapProps> = ({ allData, idMarker, distance }) => {
               >
                 <h4>{data.name}</h4>
                 <p>{data.alias ? "Alias: " + data.alias : null}</p>
-                <p>img</p>
+
+                <div>
+                  <Image
+                    loading="lazy"
+                    className="imgData"
+                    src={data.img}
+                    width={1}
+                    height={1}
+                    alt="imgData"
+                  />
+                </div>
                 <p>adresse...</p>
                 <p>
                   Situé à {Math.floor(distanceConvert)}{" "}

@@ -27,6 +27,7 @@ interface HomeProps {
         email: string;
       };
       id: string;
+      img: string;
     }
   ];
   produits: [
@@ -38,12 +39,14 @@ interface HomeProps {
         lat: number;
         lng: number;
       };
+      img: string;
     }
   ];
 }
 
 export interface CombinedData {
   name: string;
+  img: string;
   location: {
     lat: number;
     lng: number;
