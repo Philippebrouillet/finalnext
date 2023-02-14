@@ -11,7 +11,6 @@ interface ModalMapProps {
 const ModalMap: React.FC<ModalMapProps> = ({ allData, idMarker, distance }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState(false);
-  console.log(allData);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
